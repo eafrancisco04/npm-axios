@@ -1,6 +1,7 @@
 var fs = require("fs");
 var quotesLib = require("./lib/quotes/index.js");
 var mathLib = require("./lib/math.js");
+var axios = require('axios');
 
 var app = {};
 
