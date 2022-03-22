@@ -14,7 +14,7 @@ app.printQuote = function() {
 
     var randomNum = mathLib.getRandomNumber(numOfQuotes);
 
-    console.log(randomNum);
+    console.log(allQuotes[randomNum - 1]);
 };
 
 app.init = function () {
