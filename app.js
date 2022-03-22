@@ -1,3 +1,4 @@
+var fs = require("fs");
 var quotesLib = require("./lib/quotes/index.js");
 var mathLib = require("./lib/math.js");
 
@@ -9,15 +10,17 @@ app.config = {
 
 app.printQuote = function() {
     var allQuotes = quotesLib.allQuotes();
-
     var numOfQuotes = allQuotes.length;
-
     var randomNum = mathLib.getRandomNumber(numOfQuotes);
 
     console.log(allQuotes[randomNum - 1]);
 };
 
 app.init = function () {
+    fs.appendFile(__dirname + "/log.txt","test",function (err) {
+        if(err) console.log("Error", err);
+        console.log("File updated");
+    });
     setInterval(app.printQuote, app.config.intervalTime);
 };
 
