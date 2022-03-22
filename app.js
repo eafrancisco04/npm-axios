@@ -8,7 +8,13 @@ app.config = {
 };
 
 app.printQuote = function() {
-    console.log(quotesLib.allQuotes()[1]);
+    var allQuotes = quotesLib.allQuotes();
+
+    var numOfQuotes = allQuotes.length;
+
+    var randomNum = mathLib.getRandomNumber(numOfQuotes);
+
+    console.log(randomNum);
 };
 
 app.init = function () {
