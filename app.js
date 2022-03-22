@@ -1,16 +1,18 @@
 var quotesLib = require("./lib/quotes/index.js");
 var mathLib = require("./lib/math.js");
 
-var app = {}
+var app = {};
 
 app.config = {
     intervalTime: process.argv[2] ? process.argv[2] : 1000,
 };
 
+app.printQuote = function() {
+    console.log(quotesLib.allQuotes()[1]);
+};
+
 app.init = function () {
-    setInterval(() => {
-        console.log(quotesLib.allQuotes()[1]);
-    }, app.config.intervalTime);
+    setInterval(app.printQuote, app.config.intervalTime);
 };
 
 app.init();
