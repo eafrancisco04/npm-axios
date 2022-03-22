@@ -4,13 +4,13 @@ var mathLib = require("./lib/math.js");
 var app = {}
 
 app.config = {
-
+    intervalTime: process.argv[2] ? process.argv[2] : 1000,
 };
 
 app.init = function () {
     setInterval(() => {
-        console.log("Loop");
-    }, 1000);
+        console.log(quotesLib.allQuotes()[1]);
+    }, app.config.intervalTime);
 };
 
 app.init();
