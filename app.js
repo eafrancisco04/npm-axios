@@ -17,7 +17,8 @@ app.printQuote = function() {
 };
 
 app.init = function () {
-    fs.appendFile(__dirname + "/log.txt","test",function (err) {
+    fs.appendFile(__dirname + "/log.txt",new Date() + "=>" + app.config.intervalTime + "\r\n",
+    function (err) {
         if(err) console.log("Error", err);
         console.log("File updated");
     });
