@@ -1,25 +1,25 @@
 var fs = require("fs");
-var wordLib = require("./lib/quotes/index.js");
+var countryLib = require("./lib/quotes/index.js");
 var mathLib = require("./lib/math.js");
 
 var app = {};
 
 app.config = {
-    word: process.argv[2] ? process.argv[2] : "none",
+    country: process.argv[2] ? process.argv[2] : "Canada",
 };
 
-app.printWord = function() {
-    wordLib.countryPop(app.config.word);
+app.printCountry = function() {
+    countryLib.countryPop(app.config.country);
     
 };
 
 app.init = function () {
-    fs.appendFile(__dirname + "/log.txt",new Date() + "=>" + app.config.word + "\r\n",
+    fs.appendFile(__dirname + "/log.txt",new Date() + "=>" + app.config.country + "\r\n",
     function (err) {
         if(err) console.log("Error", err);
         console.log("File updated");
     });
-    app.printWord();
+    app.printCountry();
 };
 
 app.init();
