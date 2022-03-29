@@ -9,12 +9,8 @@ app.config = {
 };
 
 app.printWord = function() {
-    wordLib.aDictionary(app.config.word);
-    // var allQuotes = quotesLib.allQuotes();
-    // var numOfQuotes = allQuotes(word).length;
-    // var randomNum = mathLib.getRandomNumber(numOfQuotes);
-
-    // console.log(allQuotes[randomNum - 1]);
+    wordLib.countryPop(app.config.word);
+    
 };
 
 app.init = function () {
@@ -28,4 +24,3 @@ app.init = function () {
 
 app.init();
 
-// console.log(quotesLib.allQuotes());
