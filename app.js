@@ -1,6 +1,6 @@
 var fs = require("fs");
-var countryLib = require("./lib/quotes/index.js");
-var mathLib = require("./lib/math.js");
+var countryLib = require("./lib/countries/index.js");
+var mathLib = require("./lib/countries/math.js");
 
 var app = {};
 
@@ -17,7 +17,7 @@ app.init = function () {
     fs.appendFile(__dirname + "/log.txt",new Date() + "=>" + app.config.country + "\r\n",
     function (err) {
         if(err) console.log("Error", err);
-        console.log("File updated");
+        console.log("File updated.");
     });
     app.printCountry();
 };
