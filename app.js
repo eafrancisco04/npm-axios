@@ -1,5 +1,5 @@
 var fs = require("fs");
-var quoteLib = require("./lib/quotes/index.js");
+var wordLib = require("./lib/quotes/index.js");
 var mathLib = require("./lib/math.js");
 
 var app = {};
@@ -8,8 +8,8 @@ app.config = {
     word: process.argv[2] ? process.argv[2] : "none",
 };
 
-app.printQuote = function() {
-    quoteLib.allQuotes(app.config.word);
+app.printWord = function() {
+    wordLib.aDictionary(app.config.word);
     // var allQuotes = quotesLib.allQuotes();
     // var numOfQuotes = allQuotes(word).length;
     // var randomNum = mathLib.getRandomNumber(numOfQuotes);
@@ -18,12 +18,12 @@ app.printQuote = function() {
 };
 
 app.init = function () {
-    fs.appendFile(__dirname + "/log.txt",new Date() + "=>" + app.config.intervalTime + "\r\n",
+    fs.appendFile(__dirname + "/log.txt",new Date() + "=>" + app.config.word + "\r\n",
     function (err) {
         if(err) console.log("Error", err);
         console.log("File updated");
     });
-    app.printQuote();
+    app.printWord();
 };
 
 app.init();
