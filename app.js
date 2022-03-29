@@ -1,19 +1,20 @@
 var fs = require("fs");
-var quotesLib = require("./lib/quotes/index.js");
+var quoteLib = require("./lib/quotes/index.js");
 var mathLib = require("./lib/math.js");
 
 var app = {};
 
 app.config = {
-    intervalTime: process.argv[2] ? process.argv[2] : 1000,
+    word: process.argv[2] ? process.argv[2] : "none",
 };
 
 app.printQuote = function() {
-    var allQuotes = quotesLib.allQuotes();
-    var numOfQuotes = allQuotes.length;
-    var randomNum = mathLib.getRandomNumber(numOfQuotes);
+    quoteLib.allQuotes(app.config.word);
+    // var allQuotes = quotesLib.allQuotes();
+    // var numOfQuotes = allQuotes(word).length;
+    // var randomNum = mathLib.getRandomNumber(numOfQuotes);
 
-    console.log(allQuotes[randomNum - 1]);
+    // console.log(allQuotes[randomNum - 1]);
 };
 
 app.init = function () {
@@ -22,7 +23,7 @@ app.init = function () {
         if(err) console.log("Error", err);
         console.log("File updated");
     });
-    setInterval(app.printQuote, app.config.intervalTime);
+    app.printQuote();
 };
 
 app.init();
